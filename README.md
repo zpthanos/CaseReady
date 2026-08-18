@@ -4,6 +4,9 @@
 
 CaseReady guides a support conversation and turns the verified facts into a customer confirmation, an internal brief and a precise engineering escalation.
 
+[**Live application: zpthanos.github.io/CaseReady/**](https://zpthanos.github.io/CaseReady/)
+
+[![Live deployment](https://img.shields.io/badge/live-GitHub%20Pages-1f766e?style=flat-square)](https://zpthanos.github.io/CaseReady/)
 [![CI status](https://github.com/zpthanos/CaseReady/actions/workflows/ci.yml/badge.svg)](https://github.com/zpthanos/CaseReady/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/github/license/zpthanos/CaseReady?style=flat-square)](./LICENSE)
 
