@@ -3,7 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 
-const roots = ["app", "docs", "examples", "public"];
+const roots = ["app", "docs", "examples", "public", "release-notes"];
 const standaloneFiles = ["README.md"];
 const forbidden = [
   /\bTODO\b/,
