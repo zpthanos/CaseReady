@@ -317,8 +317,14 @@ function SiteHeader({
     <header className="site-header">
       <div className="header-inner">
         <Brand />
-        <div className="header-meta">
+        <div className={`header-meta${started ? " is-started" : ""}`}>
           <span>Guided support intake</span>
+          <a
+            className="header-link"
+            href="https://zpthanos.github.io/zpthanos/"
+          >
+            Evidence Registry
+          </a>
           {started ? (
             <button className="text-button" type="button" onClick={onHome}>
               Return to start
@@ -414,12 +420,21 @@ function Landing({
         </div>
       </section>
 
-      <section className="principle shell">
-        <p>
-          CaseReady begins with “What were you trying to complete?” because a
-          technical symptom without the customer’s objective is not yet a
-          useful case.
-        </p>
+      <section className="principle">
+        <div className="principle-grid shell">
+          <p>
+            CaseReady begins with “What were you trying to complete?” because a
+            technical symptom without the customer’s objective is not yet a
+            useful case.
+          </p>
+          <a
+            className="registry-bridge"
+            href="https://zpthanos.github.io/zpthanos/"
+          >
+            <span>Evidence behind the approach</span>
+            <strong>Open the Client Evidence Registry</strong>
+          </a>
+        </div>
       </section>
     </main>
   );
@@ -969,10 +984,18 @@ function Footer() {
           <strong>CaseReady</strong>
           <p>Guided support intake with deterministic, reviewable outputs.</p>
         </div>
-        <p>
-          Designed and authored by Athanasios Zaprios · Version{" "}
-          {CASE_READY_VERSION}
-        </p>
+        <div className="footer-meta">
+          <nav className="footer-links" aria-label="Related work">
+            <a href="https://zpthanos.github.io/zpthanos/">
+              Evidence Registry
+            </a>
+            <a href="https://github.com/zpthanos/CaseReady">Source</a>
+          </nav>
+          <p>
+            Designed and authored by Athanasios Zaprios · Version{" "}
+            {CASE_READY_VERSION}
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -170,6 +170,20 @@ a {
   gap: 24px;
 }
 
+.header-link {
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-weight: 700;
+  padding-bottom: 3px;
+  text-decoration: none;
+}
+
+.header-link:hover,
+.header-link:focus-visible {
+  border-color: var(--teal);
+  color: var(--teal-dark);
+}
+
 .text-button {
   background: transparent;
   border: 0;
@@ -490,6 +504,44 @@ a {
   line-height: 1.22;
   margin: 0;
   max-width: 940px;
+}
+
+.principle-grid {
+  align-items: end;
+  display: grid;
+  gap: clamp(28px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 310px);
+}
+
+.registry-bridge {
+  border-top: 1px solid rgba(255, 255, 255, 0.44);
+  color: var(--white);
+  padding-top: 16px;
+  text-decoration: none;
+}
+
+.registry-bridge span,
+.registry-bridge strong {
+  display: block;
+}
+
+.registry-bridge span {
+  font-size: 11px;
+  letter-spacing: 0.055em;
+  opacity: 0.78;
+  text-transform: uppercase;
+}
+
+.registry-bridge strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.25;
+  margin-top: 7px;
+}
+
+.registry-bridge:hover,
+.registry-bridge:focus-visible {
+  border-color: var(--white);
 }
 
 .workspace {
@@ -999,6 +1051,29 @@ a {
   margin: 5px 0 0;
 }
 
+.footer-meta {
+  text-align: right;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+}
+
+.footer-links a {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration-color: #718087;
+  text-underline-offset: 4px;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  text-decoration-color: var(--white);
+}
+
 :focus-visible {
   outline: 3px solid #d89d4f;
   outline-offset: 3px;
@@ -1045,6 +1120,14 @@ a {
   }
 
   .header-meta > span {
+    display: none;
+  }
+
+  .header-meta {
+    gap: 14px;
+  }
+
+  .header-meta.is-started .header-link {
     display: none;
   }
 
@@ -1107,6 +1190,11 @@ a {
     margin-bottom: 70px;
     padding-bottom: 42px;
     padding-top: 42px;
+  }
+
+  .principle-grid {
+    align-items: start;
+    grid-template-columns: 1fr;
   }
 
   .workspace {
@@ -1177,6 +1265,15 @@ a {
     flex-direction: column;
     justify-content: center;
     padding-bottom: 70px;
+  }
+
+  .footer-meta {
+    text-align: left;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+    margin-top: 22px;
   }
 }
 
