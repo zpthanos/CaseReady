@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title description">
+  <title id="title">CaseReady</title>
+  <desc id="description">Guided support intake for clear customer, support and engineering handoffs.</desc>
+  <rect width="1200" height="280" fill="#14242d"/>
+  <rect x="64" y="64" width="64" height="64" fill="#176a63"/>
+  <rect x="78" y="78" width="16" height="36" fill="#fbfaf6"/>
+  <rect x="98" y="78" width="16" height="36" fill="#fbfaf6" opacity=".58"/>
+  <text x="154" y="113" fill="#fbfaf6" font-family="Georgia, serif" font-size="52" font-weight="700">CaseReady</text>
+  <text x="66" y="196" fill="#d7dfe1" font-family="Arial, sans-serif" font-size="28">One guided conversation. Clear next messages for every handoff.</text>
+  <line x1="66" y1="228" x2="1134" y2="228" stroke="#526169"/>
+  <text x="950" y="258" fill="#9fb0b6" font-family="Arial, sans-serif" font-size="15" letter-spacing="1">ATHANASIOS ZAPRIOS</text>
+</svg>
