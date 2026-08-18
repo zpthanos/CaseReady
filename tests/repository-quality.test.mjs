@@ -4,7 +4,7 @@ import path from "node:path";
 import test from "node:test";
 
 const roots = ["app", "docs", "examples", "public", "release-notes"];
-const standaloneFiles = ["README.md"];
+const standaloneFiles = ["README.md", "index.source.html"];
 const forbidden = [
   /\bTODO\b/,
   /\bTBA\b/,

@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/finalize-build.mjs",
+    "pages:sync": "npm run build && node scripts/sync-pages-artifact.mjs",
     "preview": "vite preview",
     "test": "npm run test:unit && npm run build && node --test tests/rendered-html.test.mjs",
     "test:unit": "node --test tests/engine.test.mjs tests/examples.test.mjs tests/repository-quality.test.mjs",

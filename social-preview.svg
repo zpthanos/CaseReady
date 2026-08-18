@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
+  <title id="title">CaseReady — guided support intake</title>
+  <desc id="description">One guided intake produces clear outputs for customers, support and engineering.</desc>
+  <rect width="1280" height="640" fill="#f3f0e8"/>
+  <rect x="76" y="72" width="56" height="56" fill="#176a63"/>
+  <rect x="88" y="84" width="14" height="32" fill="#fbfaf6"/>
+  <rect x="106" y="84" width="14" height="32" fill="#fbfaf6" opacity=".58"/>
+  <text x="151" y="115" fill="#14242d" font-family="Georgia, serif" font-size="38" font-weight="700">CaseReady</text>
+  <text x="76" y="250" fill="#14242d" font-family="Georgia, serif" font-size="64" letter-spacing="-2">One careful intake.</text>
+  <text x="76" y="330" fill="#14242d" font-family="Georgia, serif" font-size="64" letter-spacing="-2">The right next message.</text>
+  <text x="80" y="397" fill="#526169" font-family="Arial, sans-serif" font-size="24">Deterministic, reviewable support handoffs that stay in the browser.</text>
+  <line x1="80" y1="493" x2="782" y2="493" stroke="#aeb8b3"/>
+  <text x="80" y="536" fill="#176a63" font-family="Arial, sans-serif" font-size="19" font-weight="700">ATHANASIOS ZAPRIOS</text>
+  <text x="80" y="569" fill="#647178" font-family="Arial, sans-serif" font-size="17">Customer support · technical delivery · clear ownership</text>
+  <rect x="888" y="92" width="312" height="132" fill="#e6f0ed"/>
+  <rect x="888" y="254" width="312" height="132" fill="#f1e8d9"/>
+  <rect x="888" y="416" width="312" height="132" fill="#e8eef2"/>
+  <rect x="888" y="92" width="8" height="132" fill="#176a63"/>
+  <rect x="888" y="254" width="8" height="132" fill="#a66d2b"/>
+  <rect x="888" y="416" width="8" height="132" fill="#2e5871"/>
+  <text x="927" y="143" fill="#176a63" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">CUSTOMER</text>
+  <text x="927" y="180" fill="#14242d" font-family="Arial, sans-serif" font-size="20" font-weight="700">Ownership and next update</text>
+  <text x="927" y="305" fill="#8a571f" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">SUPPORT</text>
+  <text x="927" y="342" fill="#14242d" font-family="Arial, sans-serif" font-size="20" font-weight="700">Context and commitments</text>
+  <text x="927" y="467" fill="#2e5871" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">RESOLVER</text>
+  <text x="927" y="504" fill="#14242d" font-family="Arial, sans-serif" font-size="20" font-weight="700">Evidence and exact request</text>
+</svg>

@@ -5,7 +5,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 const eslintConfig = defineConfig([
-  globalIgnores(["dist/**", "qa-output/**", "node_modules/**"]),
+  globalIgnores(["assets/**", "dist/**", "qa-output/**", "node_modules/**"]),
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {

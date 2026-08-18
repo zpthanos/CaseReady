@@ -14,3 +14,27 @@ test("builds a self-contained GitHub Pages entry point", async () => {
   assert.ok(assets.some((file) => file.endsWith(".css")));
   assert.doesNotMatch(html, /chatgpt\.site/i);
 });
+
+test("keeps the branch deployment mirror aligned with the production build", async () => {
+  const builtAssets = (await readdir("dist/assets")).sort();
+  const deployedAssets = (await readdir("assets")).sort();
+
+  assert.equal(await readFile("index.html", "utf8"), await readFile("dist/index.html", "utf8"));
+  assert.deepEqual(deployedAssets, builtAssets);
+
+  for (const file of builtAssets) {
+    assert.deepEqual(
+      await readFile(`assets/${file}`),
+      await readFile(`dist/assets/${file}`),
+      `${file} does not match the verified build`,
+    );
+  }
+
+  for (const file of ["favicon.svg", "social-preview.svg"]) {
+    assert.deepEqual(
+      await readFile(file),
+      await readFile(`dist/${file}`),
+      `${file} does not match the verified build`,
+    );
+  }
+});
