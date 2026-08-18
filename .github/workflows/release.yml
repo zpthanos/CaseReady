@@ -1,0 +1,37 @@
+name: Publish 1.0.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - release-notes/v1.0.0.md
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check source
+        run: npm run lint
+      - name: Run tests and production build
+        run: npm test
+      - name: Create the 1.0.0 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >
+          gh release create v1.0.0
+          --target "$GITHUB_SHA"
+          --title "CaseReady 1.0.0"
+          --notes-file release-notes/v1.0.0.md
