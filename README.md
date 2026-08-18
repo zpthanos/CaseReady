@@ -4,9 +4,6 @@
 
 CaseReady guides a support conversation and turns the verified facts into a customer confirmation, an internal brief and a precise engineering escalation.
 
-**Live application:** [caseready.ohiosanta-og.chatgpt.site](https://caseready.ohiosanta-og.chatgpt.site)
-
-[![Live deployment](https://img.shields.io/badge/live-verified-263c39?style=flat-square)](https://caseready.ohiosanta-og.chatgpt.site)
 [![CI status](https://github.com/zpthanos/CaseReady/actions/workflows/ci.yml/badge.svg)](https://github.com/zpthanos/CaseReady/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/github/license/zpthanos/CaseReady?style=flat-square)](./LICENSE)
 
@@ -71,7 +68,7 @@ npm run lint
 npm test
 ```
 
-The test suite checks the severity rules and deterministic outputs, confirms that committed examples match the generator, scans published copy for unfinished markers, builds the production artifact and verifies rendered metadata.
+The test suite checks the severity rules and deterministic outputs, confirms that committed examples match the generator, scans published copy for unfinished markers, builds the static production application and verifies its deployment metadata and asset paths.
 
 ## Honest limitations
 

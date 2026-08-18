@@ -1,0 +1,22 @@
+name: Sync 1.0.0 release notes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - release-notes/v1.0.0.md
+
+permissions:
+  contents: write
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Update published notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release edit v1.0.0 --notes-file release-notes/v1.0.0.md

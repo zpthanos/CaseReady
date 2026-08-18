@@ -8,8 +8,12 @@ if (!urlFile) {
 }
 
 const liveUrl = (await readFile(urlFile, "utf8")).trim();
-if (!liveUrl.startsWith("https://")) {
-  throw new Error("The deployed URL must use HTTPS.");
+const parsedUrl = new URL(liveUrl);
+const isLocalCheck =
+  parsedUrl.protocol === "http:" &&
+  ["127.0.0.1", "localhost"].includes(parsedUrl.hostname);
+if (parsedUrl.protocol !== "https:" && !isLocalCheck) {
+  throw new Error("A deployed URL must use HTTPS.");
 }
 
 const outputDirectory = path.resolve("qa-output");
@@ -133,7 +137,7 @@ await writeFile(
   JSON.stringify(
     {
       application: "CaseReady",
-      version: "1.0.0",
+      version: "1.0.1",
       deployedUrl: liveUrl,
       capturedAt: new Date().toISOString(),
       screenshots: screenshotNames,

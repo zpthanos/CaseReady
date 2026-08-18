@@ -1,37 +1,16 @@
 import assert from "node:assert/strict";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
+test("builds a self-contained GitHub Pages entry point", async () => {
+  const html = await readFile("dist/index.html", "utf8");
+  const assets = await readdir("dist/assets");
 
-test("renders development preview metadata", async () => {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
-  const response = await worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
-
-  assert.equal(response.status, 200);
-  assert.match(
-    response.headers.get("content-type") ?? "",
-    /^text\/html\b/i,
-  );
-  const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /CaseReady/);
-  assert.match(html, /Local to this browser/);
-  assert.match(html, /Turn one careful intake into the right next message/);
+  assert.match(html, /<title>CaseReady — guided support intake<\/title>/);
+  assert.match(html, /https:\/\/zpthanos\.github\.io\/CaseReady\//);
+  assert.match(html, /\/CaseReady\/assets\/[^"']+\.js/);
+  assert.match(html, /\/CaseReady\/assets\/[^"']+\.css/);
+  assert.ok(assets.some((file) => file.endsWith(".js")));
+  assert.ok(assets.some((file) => file.endsWith(".css")));
+  assert.doesNotMatch(html, /chatgpt\.site/i);
 });

@@ -8,6 +8,7 @@ import {
 } from "react";
 import {
   buildOutputs,
+  CASE_READY_VERSION,
   containsSensitiveData,
   createEmptyCase,
   deadlineLabels,
@@ -670,7 +671,7 @@ function Workspace({
       JSON.stringify(
         {
           format: "CaseReady",
-          version: "1.0.0",
+          version: CASE_READY_VERSION,
           savedAt: new Date().toISOString(),
           case: caseData,
         },
@@ -968,7 +969,10 @@ function Footer() {
           <strong>CaseReady</strong>
           <p>Guided support intake with deterministic, reviewable outputs.</p>
         </div>
-        <p>Designed and authored by Athanasios Zaprios · Version 1.0.0</p>
+        <p>
+          Designed and authored by Athanasios Zaprios · Version{" "}
+          {CASE_READY_VERSION}
+        </p>
       </div>
     </footer>
   );
