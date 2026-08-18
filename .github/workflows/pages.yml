@@ -24,6 +24,13 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Select GitHub Actions as the Pages source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >
+          gh api --method PUT
+          "repos/${GITHUB_REPOSITORY}/pages"
+          -f build_type=workflow
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
