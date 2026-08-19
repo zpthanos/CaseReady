@@ -40,3 +40,17 @@ test("published copy contains no unfinished markers", async () => {
     }
   }
 });
+
+test("makes the fictional payment incident the primary homepage path", async () => {
+  const source = await readFile("app/caseready-app.tsx", "utf8");
+  const demoAction = source.indexOf("Open the payment incident demo");
+  const blankAction = source.indexOf("Start a blank case");
+
+  assert.ok(demoAction >= 0, "the payment incident action is missing");
+  assert.ok(blankAction >= 0, "the blank-case action is missing");
+  assert.ok(demoAction < blankAction, "the payment incident must appear first");
+  assert.match(
+    source,
+    /button button-primary[\s\S]{0,180}onScenario\("payment-order-mismatch"\)[\s\S]{0,120}Open the payment incident demo/,
+  );
+});

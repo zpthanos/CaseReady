@@ -45,9 +45,10 @@ async function save(page, filename, fullPage = true) {
 async function openScenario(page) {
   await page.goto(liveUrl, { waitUntil: "load" });
   await page
-    .getByRole("button", { name: /Payment taken, order missing/i })
+    .getByRole("button", { name: "Open the payment incident demo" })
     .click();
   await page.getByText("Stage 1 of 5").waitFor();
+  await page.getByText("Payment taken, order missing").waitFor();
 }
 
 const desktop = await browser.newContext({
@@ -63,7 +64,7 @@ await page.getByRole("heading", {
 }).waitFor();
 await save(page, "homepage-desktop.png");
 
-await page.getByRole("button", { name: "Start a case" }).click();
+await page.getByRole("button", { name: "Start a blank case" }).click();
 await page.getByRole("button", { name: "Continue" }).click();
 await page.getByText(/highlighted answers before continuing/i).waitFor();
 await save(page, "empty-validation-state.png");
@@ -117,7 +118,12 @@ const mobile = await browser.newContext({
 const mobilePage = await mobile.newPage();
 observe(mobilePage);
 await mobilePage.goto(liveUrl, { waitUntil: "load" });
-await mobilePage.getByRole("button", { name: "Start a case" }).waitFor();
+await mobilePage
+  .getByRole("button", { name: "Open the payment incident demo" })
+  .waitFor();
+await mobilePage
+  .getByRole("button", { name: "Start a blank case" })
+  .waitFor();
 const overflow = await mobilePage.evaluate(
   () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
 );
@@ -137,7 +143,7 @@ await writeFile(
   JSON.stringify(
     {
       application: "CaseReady",
-      version: "1.0.1",
+      version: "1.0.2",
       deployedUrl: liveUrl,
       capturedAt: new Date().toISOString(),
       screenshots: screenshotNames,

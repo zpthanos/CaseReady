@@ -1,10 +1,10 @@
-name: Publish 1.0.1
+name: Publish 1.0.2
 
 on:
   push:
     branches: [main]
     paths:
-      - release-notes/v1.0.1.md
+      - release-notes/v1.0.2.md
 
 permissions:
   contents: write
@@ -27,15 +27,11 @@ jobs:
         run: npm run lint
       - name: Run tests and production build
         run: npm test
-      - name: Update the original release notes
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh release edit v1.0.0 --notes-file release-notes/v1.0.0.md
-      - name: Create the 1.0.1 release
+      - name: Create the 1.0.2 release
         env:
           GH_TOKEN: ${{ github.token }}
         run: >
-          gh release create v1.0.1
+          gh release create v1.0.2
           --target "$GITHUB_SHA"
-          --title "CaseReady 1.0.1"
-          --notes-file release-notes/v1.0.1.md
+          --title "CaseReady 1.0.2"
+          --notes-file release-notes/v1.0.2.md

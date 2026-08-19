@@ -358,17 +358,21 @@ function Landing({
             <button
               className="button button-primary"
               type="button"
+              onClick={() => onScenario("payment-order-mismatch")}
+            >
+              Open the payment incident demo
+            </button>
+            <button
+              className="button button-quiet"
+              type="button"
               onClick={onStartBlank}
             >
-              Start a case
+              Start a blank case
             </button>
-            <a className="button button-quiet" href="#practice-cases">
-              Try a fictional scenario
-            </a>
           </div>
           <p className="hero-note">
-            No account, backend or automatic draft storage. Export only when
-            you choose to.
+            The demonstration data is fictional and editable. No account,
+            backend or automatic draft storage.
           </p>
         </div>
         <aside className="output-map" aria-label="Outputs prepared by CaseReady">

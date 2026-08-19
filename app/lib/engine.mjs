@@ -1,4 +1,4 @@
-export const CASE_READY_VERSION = "1.0.1";
+export const CASE_READY_VERSION = "1.0.2";
 
 export const severityOptions = [
   { value: "S1", label: "S1 — critical interruption" },
